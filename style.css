@@ -1,0 +1,66 @@
+*{
+    margin: 0;
+}
+body{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    
+}
+.container{
+    overflow: hidden;
+    height: 100vh;
+}
+.road_img{
+    position: absolute;
+    background: url(./assets/road.png) repeat-y;
+    height: 30000vh;
+    width: 850px;
+    animation: slide 1600s linear infinite;
+    left: 25%;
+}
+#road{
+    left: 10px;
+}
+/* #road{
+    
+    background: url(./assets/road.png) repeat-y; 
+    height: 500vh;
+    width: 600px;
+    top: -80vh;
+    z-index: -9;
+    position: absolute;
+    animation: running 2s linear infinite;
+} */
+#car{
+    /*testing line below*/
+    transform: scale(0.35) translateY(170%) translateX(88%);
+
+    /* real line below */
+    /* transform: scale(0.35) translateY(170%) translateX(115%); */
+    /* transition: all 1s ease; */
+    z-index: 999;
+    position:relative;
+    left: -20%;
+    bottom: 30%;
+    transition: all 1s ease;
+}
+
+/* @keyframes running{
+    0%{
+        transform: translateY(0);
+    }100%{
+        transform: translateY(100px);
+    }
+} */
+
+@keyframes slide{
+    0%{
+        transform: translate3d(0, -90%, 0);
+    }100%{
+        transform: translate3d(0,100%,0);
+    }
+}
