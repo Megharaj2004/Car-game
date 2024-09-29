@@ -29,9 +29,21 @@ window.addEventListener('keydown', function (event) {
         currentLane++;
     }
 
+    else if(event.code=="Space"){
+        let road_img=document.querySelector('.road_img');
+        road_img.style.animationDuration="5000s";
+    }
+
     // Calculate translateX percentage based on the current lane
     let translateXPercent = 85 + (currentLane * 70);  // Adjust this value based on spacing
 
     // Update car's transform with new translateX based on current lane
     car.style.transform = `scale(0.35) translateY(170%) translateX(${translateXPercent}%)`;
 });
+
+document.addEventListener('keyup', function(event){
+    if(event.code=="Space"){
+        let road_img=document.querySelector('.road_img');
+        road_img.style.animationDuration="1600s";
+    }
+})
