@@ -12,9 +12,7 @@ body{
 }
 button {
     /* Variables */
-    position: absolute;
-    bottom: 2%;
-    left: 42%;
+    
     --button_radius: 0.75em;
     --button_color: #e8e8e8;
     --button_outline_color: #000000;
@@ -25,10 +23,12 @@ button {
     border-radius: var(--button_radius);
     background: var(--button_outline_color);
 
-
   }
   
   .button_top {
+    position: absolute;
+    bottom: 2%;
+    left: 40%;
     display: block;
     box-sizing: border-box;
     border: 2px solid var(--button_outline_color);
@@ -91,3 +91,34 @@ button {
     }
 }
 
+/* Button left */
+.button_left {
+    position: absolute;
+    bottom: 2%;
+    left: 55%;
+    display: block;
+    box-sizing: border-box;
+    border: 2px solid var(--button_outline_color);
+    border-radius: var(--button_radius);
+    padding: 0.75em 1.5em;
+    background: var(--button_color);
+    color: var(--button_outline_color);
+    transform: translateY(-0.2em);
+    transition: transform 0.1s ease;
+  }
+
+  /* Right button */
+  .button_right {
+    position: absolute;
+    bottom: 2%;
+    left: 63%;
+    display: block;
+    box-sizing: border-box;
+    border: 2px solid var(--button_outline_color);
+    border-radius: var(--button_radius);
+    padding: 0.75em 1.5em;
+    background: var(--button_color);
+    color: var(--button_outline_color);
+    transform: translateY(-0.2em);
+    transition: transform 0.1s ease;
+  }
