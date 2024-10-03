@@ -15,21 +15,34 @@
 let brake_but= document.querySelector('.button_top');
 let right_but=document.querySelector(".button_right");
 let left_but=document.querySelector(".button_left");
+let start_but=document.querySelector(".startBtn");
+let road=document.querySelector(".road_img");
+
+let gameStarted=false;
+
+//startBtn starts the animation
+start_but.addEventListener('click', ()=>{
+    road.style.animation= "slide 1600s linear infinite";
+    gameStarted=true;
+    start_but.style.display='none';
+})
 
 let currentLane = 0;
 const maxLanes = 3;
 
+
+
 window.addEventListener('keydown', function (event) {
+    if(gameStarted==true){
     let car = document.querySelector('#car');
     console.dir(event);
 
-
+    
     if ((event.code == "KeyA" || event.code == "ArrowLeft") && currentLane > 0) {
         currentLane--;
     } 
 
     else if ((event.code == "KeyD" || event.code == "ArrowRight") && currentLane < maxLanes) {
-        
         currentLane++;
     }
 
@@ -37,17 +50,47 @@ window.addEventListener('keydown', function (event) {
         let road_img=document.querySelector('.road_img');
         road_img.style.animationDuration="5000s";
         brake_but.style.transform= "translateY(0)";
-       
-
-
     }
-      // Calculate translateX percentage based on the current lane
+
+    // Calculate translateX percentage based on the current lane
     let translateXPercent = 85 + (currentLane * 70);  // Adjust this value based on spacing
 
     // Update car's transform with new translateX based on current lane
     car.style.transform = `scale(0.35) translateY(170%) translateX(${translateXPercent}%)`;
+    }
 });
 
+
+//right button
+right_but.addEventListener("mousedown",(event)=>{
+    if(gameStarted==true){
+    if(currentLane < maxLanes){
+    currentLane++;
+    // Calculate translateX percentage based on the current lane
+    let translateXPercent = 85 + (currentLane * 70);  // Adjust this value based on spacing
+
+    // Update car's transform with new translateX based on current lane
+    car.style.transform = `scale(0.35) translateY(170%) translateX(${translateXPercent}%)`;
+    }
+    }
+})
+
+//left button
+left_but.addEventListener("mousedown",(event)=>{
+    if(gameStarted==true){
+    if(currentLane > 0){
+    currentLane--;
+    // Calculate translateX percentage based on the current lane
+    let translateXPercent = 85 + (currentLane * 70);  // Adjust this value based on spacing
+
+    // Update car's transform with new translateX based on current lane
+    car.style.transform = `scale(0.35) translateY(170%) translateX(${translateXPercent}%)`;
+    }
+}
+})
+
+
+//space button
 document.addEventListener('keyup', function(event){
     if(event.code=="Space"){
         let road_img=document.querySelector('.road_img');
@@ -66,29 +109,6 @@ brake_but.addEventListener('mouseup', (event) =>{
     road_img.style.animationDuration="1600s";
 })
 
-//right button
-right_but.addEventListener("mousedown",(event)=>{
-    if(currentLane < maxLanes){
-    currentLane++;
-    // Calculate translateX percentage based on the current lane
-    let translateXPercent = 85 + (currentLane * 70);  // Adjust this value based on spacing
-
-    // Update car's transform with new translateX based on current lane
-    car.style.transform = `scale(0.35) translateY(170%) translateX(${translateXPercent}%)`;
-    }
-})
-
-//left button
-left_but.addEventListener("mousedown",(event)=>{
-    if(currentLane > 0){
-    currentLane--;
-    // Calculate translateX percentage based on the current lane
-    let translateXPercent = 85 + (currentLane * 70);  // Adjust this value based on spacing
-
-    // Update car's transform with new translateX based on current lane
-    car.style.transform = `scale(0.35) translateY(170%) translateX(${translateXPercent}%)`;
-    }
-})
 
 
 

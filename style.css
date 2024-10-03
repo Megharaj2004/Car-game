@@ -8,7 +8,6 @@ body{
     justify-content: center;
     overflow-y: hidden;
     overflow-x: hidden;
-    
 }
 button {
     /* Variables */
@@ -60,7 +59,7 @@ button {
     background: url(./assets/road.png) repeat-y;
     height: 30000vh;
     width: 100%;
-    animation: slide 1600s linear infinite;
+    /* animation: slide 1600s linear infinite; */
     left: 25%;
 }
 #road{
@@ -121,4 +120,39 @@ button {
     color: var(--button_outline_color);
     transform: translateY(-0.2em);
     transition: transform 0.1s ease;
+  }
+
+  .startBtn{
+    position: absolute;
+    bottom: 80%;
+    left: 50%;
+    display: block;
+    box-sizing: border-box;
+    border: 2px solid var(--button_outline_color);
+    border-radius: var(--button_radius);
+    padding: 0.75em 1.5em;
+    background: var(--button_color);
+    color: var(--button_outline_color);
+    transform: translateY(-0.2em);
+    transition: transform 0.1s ease;
+  }
+
+  button:hover .button_left {
+    /* Pull the button upwards when hovered */
+    transform: translateY(-0.33em);
+  }
+  
+  button:active .button_left {
+    /* Push the button downwards when pressed */
+    transform: translateY(0);
+  }
+
+  button:hover .button_right {
+    /* Pull the button upwards when hovered */
+    transform: translateY(-0.33em);
+  }
+  
+  button:active .button_right {
+    /* Push the button downwards when pressed */
+    transform: translateY(0);
   }
